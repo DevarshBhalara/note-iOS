@@ -24,6 +24,7 @@ class FBLoginViewModel {
                 self.loginSuccess.value = false
                 return
             }
+            UserDefaults.standard.setValue(true, forKey: "isLogin")
             self.loginSuccess.value = true
             print(result?.user.uid)
             

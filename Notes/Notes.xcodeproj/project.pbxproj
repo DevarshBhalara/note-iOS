@@ -27,6 +27,11 @@
 		116073032A7B90B000CC7DF7 /* FirebaseDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116072F62A7B90B000CC7DF7 /* FirebaseDemo.storyboard */; };
 		116073042A7B90B000CC7DF7 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116072F82A7B90B000CC7DF7 /* Utility.swift */; };
 		116073072A7B911B00CC7DF7 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116073062A7B911B00CC7DF7 /* Dynamic.swift */; };
+		1160730C2A7B966700CC7DF7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116073092A7B966700CC7DF7 /* Coordinator.swift */; };
+		1160730D2A7B966700CC7DF7 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160730A2A7B966700CC7DF7 /* Storyboarded.swift */; };
+		1160730E2A7B966700CC7DF7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160730B2A7B966700CC7DF7 /* AppCoordinator.swift */; };
+		116073102A7B976600CC7DF7 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160730F2A7B976600CC7DF7 /* AuthCoordinator.swift */; };
+		116073122A7B986800CC7DF7 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116073112A7B986800CC7DF7 /* HomeCoordinator.swift */; };
 		7E5DB8A33C0308536538660C /* Pods_Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06BAC6C17BFAC353AB5627DB /* Pods_Notes.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +59,11 @@
 		116072F62A7B90B000CC7DF7 /* FirebaseDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FirebaseDemo.storyboard; sourceTree = "<group>"; };
 		116072F82A7B90B000CC7DF7 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		116073062A7B911B00CC7DF7 /* Dynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		116073092A7B966700CC7DF7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1160730A2A7B966700CC7DF7 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		1160730B2A7B966700CC7DF7 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1160730F2A7B976600CC7DF7 /* AuthCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		116073112A7B986800CC7DF7 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		82B13B1F221CD0F89A523B46 /* Pods-Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.release.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.release.xcconfig"; sourceTree = "<group>"; };
 		B8E25D1CC9641A1CB7C531BC /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +110,7 @@
 		116072CF2A7B8CFF00CC7DF7 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				116073082A7B963D00CC7DF7 /* Coordinator */,
 				116073052A7B911B00CC7DF7 /* Dynamics */,
 				116072E72A7B90AF00CC7DF7 /* Cell */,
 				116072E92A7B90AF00CC7DF7 /* Model */,
@@ -178,6 +189,18 @@
 				116073062A7B911B00CC7DF7 /* Dynamic.swift */,
 			);
 			path = Dynamics;
+			sourceTree = "<group>";
+		};
+		116073082A7B963D00CC7DF7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1160730F2A7B976600CC7DF7 /* AuthCoordinator.swift */,
+				1160730B2A7B966700CC7DF7 /* AppCoordinator.swift */,
+				116073092A7B966700CC7DF7 /* Coordinator.swift */,
+				1160730A2A7B966700CC7DF7 /* Storyboarded.swift */,
+				116073112A7B986800CC7DF7 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		BA2F4B6588287C9D3598FA20 /* Pods */ = {
@@ -306,19 +329,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1160730C2A7B966700CC7DF7 /* Coordinator.swift in Sources */,
 				116073042A7B90B000CC7DF7 /* Utility.swift in Sources */,
 				116072FB2A7B90B000CC7DF7 /* AddNoteViewModel.swift in Sources */,
 				116072FC2A7B90B000CC7DF7 /* FBLoginViewModel.swift in Sources */,
 				116073002A7B90B000CC7DF7 /* FBAllNotesViewController.swift in Sources */,
 				116073012A7B90B000CC7DF7 /* FBCreateUserVC.swift in Sources */,
+				1160730E2A7B966700CC7DF7 /* AppCoordinator.swift in Sources */,
 				116072FA2A7B90B000CC7DF7 /* Note.swift in Sources */,
 				116073072A7B911B00CC7DF7 /* Dynamic.swift in Sources */,
+				1160730D2A7B966700CC7DF7 /* Storyboarded.swift in Sources */,
 				116072D52A7B8CFF00CC7DF7 /* ViewController.swift in Sources */,
 				116072FE2A7B90B000CC7DF7 /* ViewAllNoteViewModel.swift in Sources */,
 				116072D12A7B8CFF00CC7DF7 /* AppDelegate.swift in Sources */,
+				116073102A7B976600CC7DF7 /* AuthCoordinator.swift in Sources */,
 				116072FF2A7B90B000CC7DF7 /* FBLoginVC.swift in Sources */,
 				116072FD2A7B90B000CC7DF7 /* FBCreateUserViewModel.swift in Sources */,
 				116072D32A7B8CFF00CC7DF7 /* SceneDelegate.swift in Sources */,
+				116073122A7B986800CC7DF7 /* HomeCoordinator.swift in Sources */,
 				116073022A7B90B000CC7DF7 /* FBAddNoteViewController.swift in Sources */,
 				116072F92A7B90B000CC7DF7 /* AllNoteCell.swift in Sources */,
 			);

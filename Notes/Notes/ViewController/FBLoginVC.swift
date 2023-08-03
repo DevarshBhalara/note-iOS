@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FBLoginVC: UIViewController {
+class FBLoginVC: UIViewController, Storyboarded {
     
     // MARK: - Outlets
     @IBOutlet weak var tfEmail: UITextField!
@@ -16,6 +16,7 @@ class FBLoginVC: UIViewController {
     
     // MARK: - variables
     private let viewModel = FBLoginViewModel()
+    var authCoordinator: AuthCoordinator? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()

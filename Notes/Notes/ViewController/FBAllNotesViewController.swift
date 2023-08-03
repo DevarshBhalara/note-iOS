@@ -7,14 +7,16 @@
 
 import UIKit
 
-class FBAllNotesViewController: UIViewController {
+class FBAllNotesViewController: UIViewController, Storyboarded {
     
     // MARK: - Outlets
     @IBOutlet weak var clvNotes: UICollectionView!
+    @IBOutlet weak var btnAddNote: UIButton!
     
     // MARK: - variable
     private let viewModel = ViewAllNoteModel()
     private var notes: [Note] = []
+    var homeCoordinator: HomeCoordinator? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +32,17 @@ class FBAllNotesViewController: UIViewController {
     }
     
     private func setupUI() {
-        navigationItem.setRightBarButton(UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(addNote)), animated: true)
+        btnAddNote.layer.cornerRadius = btnAddNote.frame.width / 2
         viewModel.getAllNotes()
     }
     
-    @objc func addNote() {
+    @IBAction func btnAddNoteAction(_ sender: UIButton) {
         guard let vc = storyboard?.instantiateViewController(identifier: "FBAddNoteViewController") as? FBAddNoteViewController else {
             return
+        }
+        vc.complition = { [weak self] in
+            self?.viewModel.getAllNotes()
+            self?.clvNotes.reloadData()
         }
         navigationController?.present(vc, animated: true)
     }

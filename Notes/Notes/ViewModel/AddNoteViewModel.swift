@@ -21,10 +21,11 @@ class AddNoteViewModel {
         
         documentReference = documentRef.document()
         let data = note.toDictionary()
-        documentReference?.setData(data) { error in
+        documentReference?.setData(data) { [weak self] error in
             if let error = error {
                 print("Error \(error)")
             } else {
+                self?.isAdded.value = true
                 print("Added")
             }
         }
