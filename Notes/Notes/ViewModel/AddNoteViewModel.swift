@@ -11,15 +11,23 @@ class AddNoteViewModel {
     
     // MARK: - variables
     let isAdded = Dynamic<Bool>(false)
+    let note = Dynamic<Note?>(nil)
     var documentReference: DocumentReference? = nil
     
-    func addNote(note: Note) {
+    func addNote(note: Note, noteType: NoteType) {
         
-        guard let documentRef = Utility.shared.getCollectionReferenceForNotes() else {
-            return
+        if noteType == .edit {
+            guard let documentRef = Utility.shared.getCollectionReferenceForNotes()?.document(note.id) else {
+                return
+            }
+            documentReference = documentRef
+        } else {
+            guard let documentRef = Utility.shared.getCollectionReferenceForNotes()?.document() else {
+                return
+            }
+            documentReference = documentRef
         }
-        
-        documentReference = documentRef.document()
+
         let data = note.toDictionary()
         documentReference?.setData(data) { [weak self] error in
             if let error = error {
@@ -29,6 +37,28 @@ class AddNoteViewModel {
                 print("Added")
             }
         }
+    }
+    
+    func getNote(documentID: String) {
         
+        guard let collectionRef = Utility.shared.getCollectionReferenceForNotes() else {
+            return
+        }
+        
+        collectionRef.document(documentID).getDocument { [weak self] documentSnapshot, error in
+            guard let self = self else {
+                return
+            }
+            
+            if let error = error {
+                print("error \(error)")
+            }
+            
+            guard let documentData = documentSnapshot?.data() else {
+                print("error")
+                return
+            }
+            self.note.value = Note.convertToModel(dictionary: documentData, id: documentID)
+        }
     }
 }
