@@ -21,5 +21,10 @@ class HomeCoordinator {
         homeVC.homeCoordinator = self
         navigationController.viewControllers = [homeVC]
     }
+    
+    func goToViewNote(noteType: NoteType, id: String) {
+        let viewNoteCoodinator = ViewNoteCoordinator(navigationController: navigationController, noteType: noteType, id: id)
+        viewNoteCoodinator.start()
+    }
 
 }

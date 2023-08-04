@@ -8,16 +8,20 @@
 import UIKit
 import FirebaseFirestore
 
-class FBAddNoteViewController: UIViewController {
+class FBAddNoteViewController: UIViewController, Storyboarded {
     
     // MARK: - outlets
     @IBOutlet weak var tfTitle: UITextField!
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tvContent: UITextView!
     
     // MARK: - variables
     private let viewModel = AddNoteViewModel()
     var complition: (() -> ())?
     var initailPlaceHolder = "Write here..."
+    var noteType: NoteType?
+    var documentID: String = ""
+    var viewNoteCoordinator: ViewNoteCoordinator? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +38,43 @@ class FBAddNoteViewController: UIViewController {
                 }
             }
         }
+        
+        viewModel.note.bind { [weak self] note in
+            guard let note = note else {
+                return
+            }
+            self?.setNoteData(note: note)
+        }
+    }
+    
+    private func setNoteData(note: Note) {
+        lblTitle.text = ""
+        tfTitle.text = note.title
+        tvContent.text = note.content
     }
     
     @IBAction func btnSaveAction(_ sender: UIButton) {
         
         if !(tfTitle.text?.isEmpty ?? true || tvContent.text.isEmpty )
         {
-            viewModel.addNote(note: Note(title: tfTitle.text ?? "", content: tvContent.text ?? "", timeStamp: Timestamp(date: Date())))
+            if (documentID.isEmpty) {
+                viewModel.addNote(note: Note(id: "", title: tfTitle.text ?? "", content: tvContent.text ?? "", timeStamp: Timestamp(date: Date())), noteType: .new)
+            } else {
+                viewModel.addNote(note: Note(id: documentID, title: tfTitle.text ?? "", content: tvContent.text ?? "", timeStamp: Timestamp(date: Date())), noteType: .edit)
+            }
         }
     }
     
     private func setupUI() {
+        switch noteType {
+        case .new:
+            break
+        case .edit:
+            viewModel.getNote(documentID: documentID)
+        case .none:
+            break
+        }
+        
         tfTitle.layer.borderWidth = 0
         tfTitle.borderStyle = .none
         tvContent.delegate = self

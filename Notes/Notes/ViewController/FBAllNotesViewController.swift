@@ -58,7 +58,6 @@ extension FBAllNotesViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllNoteCell", for: indexPath) as? AllNoteCell else {
             return UICollectionViewCell()
         }
-        
         cell.configureCell(note: notes[indexPath.row])
         return cell
     }
@@ -70,6 +69,19 @@ extension FBAllNotesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: view.bounds.width / 2 - 20, height: view.bounds.height / 6 - 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "FBAddNoteViewController") as? FBAddNoteViewController else {
+            return
+        }
+        vc.complition = { [weak self] in
+            self?.viewModel.getAllNotes()
+            self?.clvNotes.reloadData()
+        }
+        vc.documentID = notes[indexPath.row].id
+        vc.noteType = .edit
+        navigationController?.present(vc, animated: true)
     }
     
 }

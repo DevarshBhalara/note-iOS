@@ -29,7 +29,8 @@ class ViewAllNoteModel {
                 if let querySnapshot = querySnapshot {
                     let documentArray = querySnapshot.documents.map { $0.data() }
                     print(documentArray)
-                    self.notes.value = Note.convertToModelArray(dictionaryArray: documentArray)
+                    self.notes.value = Note.convertToModelArray(dictionaryArray: documentArray, ids: querySnapshot.documents.map { $0.documentID })
+                    print(notes.value)
                 }
                 
             }
