@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseAuth
+import GoogleSignIn
 
 class FBCreateUserVC: UIViewController, Storyboarded {
     
@@ -24,6 +27,7 @@ class FBCreateUserVC: UIViewController, Storyboarded {
     }
     
     private func bindViewModel() {
+        viewModel.vc = self
         viewModel.registerSuccess.bind { [weak self] success in
             
             guard let self = self else {
@@ -45,5 +49,10 @@ class FBCreateUserVC: UIViewController, Storyboarded {
     
     @IBAction func goToLogin(_ sender: UIButton) {
         signupCoordinator?.gotologin()
+    }
+    
+    @IBAction func signUpWithGoogle(_ sender: UIButton) {
+        
+        viewModel.signUpWithGoogle()
     }
 }

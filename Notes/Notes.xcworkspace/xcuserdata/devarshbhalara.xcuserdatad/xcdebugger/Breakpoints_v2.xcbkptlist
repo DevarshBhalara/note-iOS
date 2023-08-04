@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DEF2F7B5-795A-4CD1-8B3B-90721635376E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Notes/ViewModel/AddNoteViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "addNote(note:noteType:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "A9BFC084-4469-472D-A956-255309A526E5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -39,16 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1D0B9964-162F-4C54-98BD-5A9DE65233F5"
+            uuid = "8005F417-8048-4C12-9B2C-F76FD0E2911C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Notes/Coordinator/SignupCoordinator.swift"
+            filePath = "Notes/ViewModel/FBCreateUserViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "gotologin()"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "createUserWithGoogle(credential:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

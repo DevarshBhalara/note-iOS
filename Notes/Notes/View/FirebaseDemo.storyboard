@@ -75,6 +75,14 @@
                                     <constraint firstItem="CjV-92-02f" firstAttribute="leading" secondItem="ipH-Xz-StG" secondAttribute="leading" constant="15" id="yVO-fh-llf"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-JJ-P4q">
+                                <rect key="frame" x="117.33333333333333" y="604" width="158.66666666666669" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login with google"/>
+                                <connections>
+                                    <action selector="loginWithGoogle:" destination="wBS-BX-Hlj" eventType="touchUpInside" id="dns-Lw-LXA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gZQ-sp-voX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -82,6 +90,8 @@
                             <constraint firstItem="ipH-Xz-StG" firstAttribute="centerY" secondItem="Pnz-bm-Fa3" secondAttribute="centerY" id="AmO-qy-9Dk"/>
                             <constraint firstItem="Pnz-bm-Fa3" firstAttribute="trailing" secondItem="gZQ-sp-voX" secondAttribute="trailing" id="DIH-Yt-uz7"/>
                             <constraint firstItem="gZQ-sp-voX" firstAttribute="trailing" secondItem="ipH-Xz-StG" secondAttribute="trailing" constant="20" id="EWO-Cw-5oB"/>
+                            <constraint firstItem="fgW-JJ-P4q" firstAttribute="centerX" secondItem="ipH-Xz-StG" secondAttribute="centerX" id="GlS-tP-GVH"/>
+                            <constraint firstItem="fgW-JJ-P4q" firstAttribute="top" secondItem="ipH-Xz-StG" secondAttribute="bottom" constant="27" id="OaC-Gl-aKc"/>
                             <constraint firstItem="Pnz-bm-Fa3" firstAttribute="top" secondItem="LBJ-do-1oh" secondAttribute="top" id="Umc-59-hZE"/>
                             <constraint firstAttribute="bottom" secondItem="Pnz-bm-Fa3" secondAttribute="bottom" id="fYk-JT-5eE"/>
                             <constraint firstItem="ipH-Xz-StG" firstAttribute="leading" secondItem="gZQ-sp-voX" secondAttribute="leading" constant="20" id="lME-Cl-4hp"/>
@@ -172,6 +182,14 @@
                                     <constraint firstItem="5do-ee-kCM" firstAttribute="centerX" secondItem="2dX-p5-4hc" secondAttribute="centerX" id="nWd-pm-RMH"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qg1-BN-GX4">
+                                <rect key="frame" x="109.33333333333333" y="610" width="174.33333333333337" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sing up with google"/>
+                                <connections>
+                                    <action selector="signUpWithGoogle:" destination="LdZ-DP-NZ9" eventType="touchUpInside" id="vHW-ts-ZyK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Ki-rj-X4R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -183,6 +201,8 @@
                             <constraint firstItem="zFu-M5-GoI" firstAttribute="centerY" secondItem="NUe-u8-6Ll" secondAttribute="centerY" id="W6y-cX-Dzf"/>
                             <constraint firstItem="zFu-M5-GoI" firstAttribute="leading" secondItem="3Ki-rj-X4R" secondAttribute="leading" constant="20" id="Zes-zD-yUj"/>
                             <constraint firstItem="NUe-u8-6Ll" firstAttribute="trailing" secondItem="3Ki-rj-X4R" secondAttribute="trailing" id="i0L-3M-v5h"/>
+                            <constraint firstItem="qg1-BN-GX4" firstAttribute="top" secondItem="zFu-M5-GoI" secondAttribute="bottom" constant="22" id="rXt-Ix-MPa"/>
+                            <constraint firstItem="qg1-BN-GX4" firstAttribute="centerX" secondItem="zFu-M5-GoI" secondAttribute="centerX" id="xzV-zr-CIn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jCS-Tm-KoD"/>

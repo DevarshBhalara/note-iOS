@@ -24,6 +24,7 @@ class FBLoginVC: UIViewController, Storyboarded {
     }
     
     private func bindViewModel() {
+        viewModel.vc = self
         viewModel.loginSuccess.bind { [weak self] success in
             
             guard let self = self else {
@@ -47,6 +48,9 @@ class FBLoginVC: UIViewController, Storyboarded {
                 viewModel.login(email: email, password: password)
             }
         }
+    }
+    @IBAction func loginWithGoogle(_ sender: UIButton) {
+        viewModel.loginWithGoogle()
     }
     
     @IBAction func btnSignupAction(_ sender: UIButton) {
