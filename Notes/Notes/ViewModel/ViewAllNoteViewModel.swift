@@ -11,6 +11,7 @@ class ViewAllNoteModel {
     // MARK: - variables
     let error = Dynamic<String>("")
     let notes = Dynamic<[Note]>([])
+    let deleteSuccess = Dynamic<Bool>(false)
     
     func getAllNotes() {
         Utility.shared.getCollectionReferenceForNotes()?.getDocuments { [weak self]
@@ -34,5 +35,21 @@ class ViewAllNoteModel {
                 }
                 
             }
+    }
+    
+    func deleteNote(id: String) {
+        Utility.shared.getCollectionReferenceForNotes()?.document(id).delete() { [weak self]
+             error in
+            
+            guard let self = self else {
+                return
+            }
+            
+            if let error = error {
+                self.error.value = "Some Error Occurred: \(error.localizedDescription)"
+                return
+            }
+            self.deleteSuccess.value = true
+        }
     }
 }

@@ -28,4 +28,9 @@ class AuthCoordinator: Coordinator {
             sceneDelegate.appCoordinator?.goToCombineScreen()
         }
     }
+    
+    func goToSignup() {
+        let signUp = SignupCoordinator(navigationController: navigationController)
+        signUp.start()
+    }
 }

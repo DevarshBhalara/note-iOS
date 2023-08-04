@@ -68,7 +68,7 @@ class FBAddNoteViewController: UIViewController, Storyboarded {
     private func setupUI() {
         switch noteType {
         case .new:
-            break
+            lblTitle.text = "Add Note"
         case .edit:
             viewModel.getNote(documentID: documentID)
         case .none:

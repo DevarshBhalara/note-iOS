@@ -13,6 +13,9 @@ class AllNoteCell: UICollectionViewCell {
     @IBOutlet private weak var lblTitle: UILabel!
     @IBOutlet private weak var lblContent: UILabel!
     
+    // MARK: - variables
+    var deleteNote: (() -> ())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 10
@@ -21,5 +24,9 @@ class AllNoteCell: UICollectionViewCell {
     func configureCell(note: Note) {
         lblTitle.text = note.title
         lblContent.text = note.content
+    }
+    
+    @IBAction func btnDeleteAction(_ sender: UIButton) {
+        deleteNote?()
     }
 }
