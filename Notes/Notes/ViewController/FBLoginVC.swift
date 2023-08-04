@@ -50,9 +50,6 @@ class FBLoginVC: UIViewController, Storyboarded {
     }
     
     @IBAction func btnSignupAction(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "FBCreateUserVC") as? FBCreateUserVC else {
-            return
-        }
-        navigationController?.pushViewController(vc, animated: true)
+        authCoordinator?.goToSignup()
     }
 }

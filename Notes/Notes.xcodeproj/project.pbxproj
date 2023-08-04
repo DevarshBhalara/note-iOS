@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114553812A7CCFCE00F694B7 /* ViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114553802A7CCFCE00F694B7 /* ViewController+extensions.swift */; };
+		114553842A7CD9C800F694B7 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114553822A7CD9C800F694B7 /* HeaderCell.swift */; };
+		114553852A7CD9C800F694B7 /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 114553832A7CD9C800F694B7 /* HeaderCell.xib */; };
+		114553872A7CE39A00F694B7 /* SignupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114553862A7CE39A00F694B7 /* SignupCoordinator.swift */; };
 		116072D12A7B8CFF00CC7DF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116072D02A7B8CFF00CC7DF7 /* AppDelegate.swift */; };
 		116072D32A7B8CFF00CC7DF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116072D22A7B8CFF00CC7DF7 /* SceneDelegate.swift */; };
 		116072D52A7B8CFF00CC7DF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116072D42A7B8CFF00CC7DF7 /* ViewController.swift */; };
@@ -39,6 +43,10 @@
 
 /* Begin PBXFileReference section */
 		06BAC6C17BFAC353AB5627DB /* Pods_Notes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Notes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		114553802A7CCFCE00F694B7 /* ViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+extensions.swift"; sourceTree = "<group>"; };
+		114553822A7CD9C800F694B7 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		114553832A7CD9C800F694B7 /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
+		114553862A7CE39A00F694B7 /* SignupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupCoordinator.swift; sourceTree = "<group>"; };
 		116072CD2A7B8CFF00CC7DF7 /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116072D02A7B8CFF00CC7DF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116072D22A7B8CFF00CC7DF7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +100,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		1145537F2A7CCFB100F694B7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				114553802A7CCFCE00F694B7 /* ViewController+extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		116072C42A7B8CFF00CC7DF7 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +130,7 @@
 		116072CF2A7B8CFF00CC7DF7 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				1145537F2A7CCFB100F694B7 /* Extension */,
 				116073082A7B963D00CC7DF7 /* Coordinator */,
 				116073052A7B911B00CC7DF7 /* Dynamics */,
 				116072E72A7B90AF00CC7DF7 /* Cell */,
@@ -137,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				116072E82A7B90AF00CC7DF7 /* AllNoteCell.swift */,
+				114553822A7CD9C800F694B7 /* HeaderCell.swift */,
+				114553832A7CD9C800F694B7 /* HeaderCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -205,6 +224,7 @@
 				1160730A2A7B966700CC7DF7 /* Storyboarded.swift */,
 				116073112A7B986800CC7DF7 /* HomeCoordinator.swift */,
 				116CE9B32A7BB5BA0020672E /* ViewNoteCoordinator.swift */,
+				114553862A7CE39A00F694B7 /* SignupCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -282,6 +302,7 @@
 				116072DA2A7B8D0000CC7DF7 /* Assets.xcassets in Resources */,
 				116073032A7B90B000CC7DF7 /* FirebaseDemo.storyboard in Resources */,
 				116072D82A7B8CFF00CC7DF7 /* Main.storyboard in Resources */,
+				114553852A7CD9C800F694B7 /* HeaderCell.xib in Resources */,
 				116072E52A7B8E7B00CC7DF7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,10 +357,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1160730C2A7B966700CC7DF7 /* Coordinator.swift in Sources */,
+				114553812A7CCFCE00F694B7 /* ViewController+extensions.swift in Sources */,
 				116073042A7B90B000CC7DF7 /* Utility.swift in Sources */,
 				116072FB2A7B90B000CC7DF7 /* AddNoteViewModel.swift in Sources */,
+				114553842A7CD9C800F694B7 /* HeaderCell.swift in Sources */,
 				116072FC2A7B90B000CC7DF7 /* FBLoginViewModel.swift in Sources */,
 				116073002A7B90B000CC7DF7 /* FBAllNotesViewController.swift in Sources */,
+				114553872A7CE39A00F694B7 /* SignupCoordinator.swift in Sources */,
 				116CE9B42A7BB5BA0020672E /* ViewNoteCoordinator.swift in Sources */,
 				116073012A7B90B000CC7DF7 /* FBCreateUserVC.swift in Sources */,
 				1160730E2A7B966700CC7DF7 /* AppCoordinator.swift in Sources */,

@@ -26,5 +26,11 @@ class HomeCoordinator {
         let viewNoteCoodinator = ViewNoteCoordinator(navigationController: navigationController, noteType: noteType, id: id)
         viewNoteCoodinator.start()
     }
+    
+    func gotoAuth() {
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            sceneDelegate.appCoordinator?.goToAuth()
+        }
+    }
 
 }

@@ -11,6 +11,7 @@ class FBAllNotesViewController: UIViewController, Storyboarded {
     
     // MARK: - Outlets
     @IBOutlet weak var clvNotes: UICollectionView!
+    @IBOutlet weak var aiLoading: UIActivityIndicatorView!
     @IBOutlet weak var btnAddNote: UIButton!
     
     // MARK: - variable
@@ -24,14 +25,28 @@ class FBAllNotesViewController: UIViewController, Storyboarded {
         setupUI()
     }
     
+    @IBAction func btnLogoutAction(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "isLogin")
+        homeCoordinator?.gotoAuth()
+    }
+    
     private func bindViewModel() {
+        
         viewModel.notes.bind { [weak self] notes in
             self?.notes = notes
+            self?.aiLoading.stopAnimating()
             self?.clvNotes.reloadData()
+        }
+        
+        viewModel.deleteSuccess.bind { [weak self] isDelete in
+            if isDelete {
+                self?.viewModel.getAllNotes()
+            }
         }
     }
     
     private func setupUI() {
+        aiLoading.startAnimating()
         btnAddNote.layer.cornerRadius = btnAddNote.frame.width / 2
         viewModel.getAllNotes()
     }
@@ -41,9 +56,10 @@ class FBAllNotesViewController: UIViewController, Storyboarded {
             return
         }
         vc.complition = { [weak self] in
+            self?.aiLoading.startAnimating()
             self?.viewModel.getAllNotes()
-            self?.clvNotes.reloadData()
         }
+        vc.noteType = .new
         navigationController?.present(vc, animated: true)
     }
 }
@@ -57,6 +73,18 @@ extension FBAllNotesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllNoteCell", for: indexPath) as? AllNoteCell else {
             return UICollectionViewCell()
+        }
+        cell.deleteNote = { [weak self] in
+            
+            guard let self = self else {
+                return
+            }
+            
+            self.showAlert(title: "Are you sure?") {
+                self.aiLoading.startAnimating()
+                self.viewModel.deleteNote(id: self.notes[indexPath.row].id)
+                self.clvNotes.reloadData()
+            }
         }
         cell.configureCell(note: notes[indexPath.row])
         return cell
@@ -76,12 +104,11 @@ extension FBAllNotesViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         vc.complition = { [weak self] in
+            self?.aiLoading.startAnimating()
             self?.viewModel.getAllNotes()
-            self?.clvNotes.reloadData()
         }
         vc.documentID = notes[indexPath.row].id
         vc.noteType = .edit
         navigationController?.present(vc, animated: true)
     }
-    
 }
